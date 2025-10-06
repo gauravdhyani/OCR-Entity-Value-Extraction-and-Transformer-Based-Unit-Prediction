@@ -6,15 +6,6 @@ Given the diverse text alignments and formats in the dataset images, we required
 
 ---
 
-## Challenges and Limitations 
-
-1. **Text Complexity:** OCR struggled with diverse alignments, multi-line text, varying fonts, and noisy backgrounds.  
-2. **Scale of Processing:** Running OCR on 250,000 images was resource-intensive, requiring parallelization, GPU acceleration, and checkpointing.  
-3. **Training on Large OCR Outputs:** Handling large OCR datasets for T5-small demanded careful memory management, optimized batch sizes, and GPU utilization.  
-4. **Resource Constraints:** Balancing accuracy and efficiency led to choosing EasyOCR and T5-small over heavier models like LLMs.  
-
----
-
 ## Approach Overview
 The system is divided into two major components:
 
@@ -38,6 +29,15 @@ The system is divided into two major components:
 ### **Preprocessing**
 - Resizing and normalization of images.
 - Regex-based cleaning to remove garbage text.
+
+---
+
+## Challenges and Limitations 
+
+1. **Text Complexity:** OCR struggled with diverse alignments, multi-line text, varying fonts, and noisy backgrounds.  
+2. **Scale of Processing:** Running OCR on 250,000 images was resource-intensive, requiring parallelization, GPU acceleration, and checkpointing.  
+3. **Training on Large OCR Outputs:** Handling large OCR datasets for T5-small demanded careful memory management, optimized batch sizes, and GPU utilization.  
+4. **Resource Constraints:** Balancing accuracy and efficiency led to choosing EasyOCR and T5-small over heavier models like LLMs.  
 
 ---
 
