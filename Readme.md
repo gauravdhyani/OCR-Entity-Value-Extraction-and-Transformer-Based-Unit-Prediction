@@ -87,9 +87,7 @@ After extracting text, predicting correct values with units was the next challen
 - **BERT** → Only numeric predictions.  
 - **T5 Transformer** → Predicted both values + units reliably.  
 
----
-
-## Results
+### Results
 
 - **F1 Score:** `0.3544` on validation/test set.  
 - Demonstrates **feasibility of a large-scale OCR + NLP pipeline**.  
