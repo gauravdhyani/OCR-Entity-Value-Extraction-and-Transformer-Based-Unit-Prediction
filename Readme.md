@@ -6,6 +6,15 @@ Given the diverse text alignments and formats in the dataset images, we required
 
 ---
 
+## Challenges and Limitations 
+
+1. **Text Complexity:** OCR struggled with diverse alignments, multi-line text, varying fonts, and noisy backgrounds.  
+2. **Scale of Processing:** Running OCR on 250,000 images was resource-intensive, requiring parallelization, GPU acceleration, and checkpointing.  
+3. **Training on Large OCR Outputs:** Handling large OCR datasets for T5-small demanded careful memory management, optimized batch sizes, and GPU utilization.  
+4. **Resource Constraints:** Balancing accuracy and efficiency led to choosing EasyOCR and T5-small over heavier models like LLMs.  
+
+---
+
 ## Approach Overview
 The system is divided into two major components:
 
@@ -79,43 +88,17 @@ After extracting text, predicting correct values with units was the next challen
 - **T5 Transformer** → Predicted both values + units reliably.  
 
 ---
- 
-## Challenges and Limitations
 
-### **1. Text Complexity**
-Handling images with:
-- Diverse alignments
-- Multi-line text
-- Varying fonts
-- Noisy backgrounds  
-was a major challenge for OCR models.
+## Results
 
-
-### **2. Scale of Processing (250,000 Images)**
-- Running OCR on **250,000 images** was highly resource-intensive.
-- Required:
-  - **Parallelization**
-  - **GPU acceleration**
-  - **Checkpointing** to avoid failures
-- Processing time and storage management became significant hurdles.
-
-### **3. Training on Large OCR Outputs**
-- Feeding such a large dataset into a Transformer-based model (**T5-small**) required:
-  - Careful **memory management**
-  - Optimized **batch sizes**
-  - Efficient **GPU utilization**
-
-### **4. Resource Constraints**
-- Balancing:
-  - **Model performance (accuracy)**  
-  - **Computational efficiency (speed, memory, hardware)**  
-- Led us to choose:
-  - **EasyOCR** for OCR  
-  - **T5-small** for prediction  
-over heavier alternatives like LLMs or larger transformer models.
+- **F1 Score:** `0.3544` on validation/test set.  
+- Demonstrates **feasibility of a large-scale OCR + NLP pipeline**.  
+- Performance highlights:
+  - Challenges of **noisy OCR outputs** and **diverse text layouts**.
+  - Shows that **Transformers can generalize reasonably well** despite imperfect OCR input.
 
 ---
-
+ 
 ## Conclusion
 By combining:
 - **EasyOCR** for robust text extraction, and  
